@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>富力湾 - 社区便民服务</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* 顶部导航 */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: #ffd700;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Banner区 */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-btn {
+            display: inline-block;
+            background: #ffd700;
+            color: #333;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+        
+        .hero-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        /* 服务分类 */
+        .services {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .service-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* 关于我们 */
+        .about {
+            background: #f8f9fa;
+            padding: 3rem 20px;
+            text-align: center;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* 联系表单 */
+        .contact {
+            max-width: 600px;
+            margin: 3rem auto;
+            padding: 0 20px;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+        
+        /* 页脚 */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 20px;
+        }
+        
+        footer p {
+            opacity: 0.7;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header>
+        <div class="nav-container">
+            <div class="logo" style="text-align: center; width: 100%;">富力湾（惠东）</div>
+            <nav>
+                <ul>
+                    <li><a href="#services">服务项目</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Banner区 -->
+    <section class="hero">
+        <h1>您的社区便民服务平台</h1>
+        <p>家政、维修、搬家、陪护...一键预约，服务到家</p>
+        <a href="#contact" class="hero-btn">立即预约服务</a>
+    </section>
+    
+    <!-- 服务项目 -->
+    <section class="services" id="services">
+        <h2 class="section-title">热门服务</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>家政保洁</h3>
+                <p>日常保洁、深度清洁、开荒保洁</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>家电维修</h3>
+                <p>空调、冰箱、洗衣机维修安装</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚚</div>
+                <h3>搬家服务</h3>
+                <p>居民搬家、办公室搬迁、物品搬运</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👴</div>
+                <h3>老人陪护</h3>
+                <p>日常陪护、就医陪诊、康复护理</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌿</div>
+                <h3>绿植养护</h3>
+                <p>绿植租赁、定期养护、花园设计</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🐕</div>
+                <h3>宠物服务</h3>
+                <p>宠物寄养、美容、遛狗服务</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>墙面翻新</h3>
+                <p>旧墙刷新、艺术涂料、防水处理</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔑</div>
+                <h3>开锁换锁</h3>
+                <p>紧急开锁、指纹锁安装、汽车开锁</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 关于我们 -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2 class="section-title">关于富力湾</h2>
+            <p>富力湾是一家专注于社区便民服务的平台，致力于为广大居民提供便捷、专业、实惠的家政及生活服务。我们严格筛选服务人员，确保每位客户都能享受到优质的服务体验。</p>
+            <br>
+            <p>📞 客服热线：400-XXX-XXXX</p>
+        </div>
+    </section>
+    
+    <!-- 联系我们 -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">预约服务</h2>
+        <form class="contact-form" onsubmit="submitForm(event)">
+            <div class="form-group">
+                <label for="name">您的姓名</label>
+                <input type="text" id="name" name="name" required placeholder="请输入您的姓名">
+            </div>
+            <div class="form-group">
+                <label for="phone">联系电话</label>
+                <input type="tel" id="phone" name="phone" required placeholder="请输入您的电话号码">
+            </div>
+            <div class="form-group">
+                <label for="service">选择服务</label>
+                <select id="service" name="service" required>
+                    <option value="">请选择服务类型</option>
+                    <option value="家政保洁">家政保洁</option>
+                    <option value="家电维修">家电维修</option>
+                    <option value="搬家服务">搬家服务</option>
+                    <option value="老人陪护">老人陪护</option>
+                    <option value="绿植养护">绿植养护</option>
+                    <option value="宠物服务">宠物服务</option>
+                    <option value="墙面翻新">墙面翻新</option>
+                    <option value="开锁换锁">开锁换锁</option>
+                    <option value="其他">其他服务</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">详细需求</label>
+                <textarea id="message" name="message" placeholder="请描述您的具体需求"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">提交预约</button>
+        </form>
+    </section>
+    
+    <!-- 页脚 -->
+    <footer>
+        <p>© 2026 富力湾 fuliwan.com - 社区便民服务</p>
+    </footer>
+    
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // 构建消息
+            const fullMessage = `📝 新预约订单\n\n姓名：${name}\n电话：${phone}\n服务：${service}\n需求：${message}`;
+            
+            // 这里可以接入微信客服或发送邮件
+            alert('预约成功！我们会尽快联系您。\n\n您也可以直接添加微信：XXXXX 进行咨询');
+            
+            // 清空表单
+            event.target.reset();
+        }
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
