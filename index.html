@@ -316,7 +316,7 @@
     <!-- 联系我们 -->
     <section class="contact" id="contact">
         <h2 class="section-title">预约服务</h2>
-        <form class="contact-form" onsubmit="submitForm(event)">
+        <form class="contact-form" action="https://formspree.io/f/myknpoed" method="POST">
             <div class="form-group">
                 <label for="name">您的姓名</label>
                 <input type="text" id="name" name="name" required placeholder="请输入您的姓名">
@@ -354,23 +354,7 @@
     </footer>
     
     <script>
-        function submitForm(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value;
-            
-            // 构建消息
-            const fullMessage = `📝 新预约订单\n\n姓名：${name}\n电话：${phone}\n服务：${service}\n需求：${message}`;
-            
-            // 这里可以接入微信客服或发送邮件
-            alert('预约成功！我们会尽快联系您。\n\n您也可以直接添加微信：XXXXX 进行咨询');
-            
-            // 清空表单
-            event.target.reset();
-        }
+
         
         // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
