@@ -3,371 +3,672 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>富力湾 - 社区便民服务</title>
+    <title>富力湾家园 - 社区服务平台</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Noto Sans SC', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            min-height: 100vh;
         }
-        
-        /* 顶部导航 */
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        
-        .nav-container {
+
+        .header-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        
-        .logo span {
-            color: #ffd700;
-        }
-        
-        nav ul {
             display: flex;
-            list-style: none;
+            align-items: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
             gap: 2rem;
         }
-        
-        nav a {
+
+        .nav-links a {
             color: white;
             text-decoration: none;
+            font-weight: 500;
             transition: opacity 0.3s;
         }
-        
-        nav a:hover {
+
+        .nav-links a:hover {
             opacity: 0.8;
         }
-        
-        /* Banner区 */
+
         .hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 4rem 20px;
+            padding: 8rem 2rem 4rem;
             text-align: center;
         }
-        
+
         .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-        
-        .hero-btn {
-            display: inline-block;
-            background: #ffd700;
-            color: #333;
-            padding: 12px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s;
-        }
-        
-        .hero-btn:hover {
-            transform: scale(1.05);
-        }
-        
-        /* 服务分类 */
-        .services {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 20px;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
-        }
-        
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .service-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            cursor: pointer;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .service-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
         }
-        
-        .service-card h3 {
-            margin-bottom: 0.5rem;
-            color: #333;
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
         }
-        
+
+        .search-bar {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+
+        .search-bar button {
+            padding: 15px 30px;
+            background: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .healthcare { background: linear-gradient(135deg, #11998e, #38ef7d); }
+        .renovation { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .moving { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+        .repair { background: linear-gradient(135deg, #fa709a, #fee140); }
+        .cleaning { background: linear-gradient(135deg, #a8edea, #fed6e3); }
+        .beauty { background: linear-gradient(135deg, #ff9a9e, #fecfef); }
+
+        .service-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
         .service-card p {
             color: #666;
             font-size: 0.9rem;
+            margin-bottom: 1.5rem;
         }
-        
-        /* 关于我们 */
-        .about {
-            background: #f8f9fa;
-            padding: 3rem 20px;
+
+        .service-btn {
+            padding: 10px 25px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .service-btn:hover {
+            opacity: 0.9;
+        }
+
+        .providers-section {
+            background: white;
+            padding: 4rem 2rem;
+            border-radius: 30px;
+            margin-top: 2rem;
+        }
+
+        .providers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .provider-card {
+            border: 1px solid #eee;
+            border-radius: 15px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .provider-card:hover {
+            border-color: #667eea;
+        }
+
+        .provider-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .provider-info h4 {
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+        }
+
+        .provider-info .category {
+            color: #667eea;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .provider-info .rating {
+            color: #f39c12;
+            font-size: 0.9rem;
+        }
+
+        .provider-info .contact-btn {
+            margin-top: 0.5rem;
+            padding: 8px 20px;
+            background: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
             text-align: center;
         }
-        
-        .about-content {
-            max-width: 800px;
+
+        .footer-content {
+            max-width: 1200px;
             margin: 0 auto;
         }
-        
-        /* 联系表单 */
-        .contact {
-            max-width: 600px;
-            margin: 3rem auto;
-            padding: 0 20px;
+
+        .footer h2 {
+            margin-bottom: 1rem;
         }
-        
-        .contact-form {
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-info {
+            margin-top: 1rem;
+            opacity: 0.8;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
             background: white;
             padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
         }
-        
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-header h3 {
+            color: #2c3e50;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+
         .form-group {
             margin-bottom: 1rem;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
+            color: #2c3e50;
             font-weight: 500;
         }
-        
+
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             border: 1px solid #ddd;
-            border-radius: 6px;
+            border-radius: 10px;
             font-size: 1rem;
         }
-        
+
         .form-group textarea {
-            min-height: 100px;
+            height: 100px;
             resize: vertical;
         }
-        
+
         .submit-btn {
             width: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border: none;
-            padding: 12px;
-            border-radius: 6px;
+            border-radius: 10px;
             font-size: 1rem;
+            font-weight: 500;
             cursor: pointer;
-            transition: opacity 0.3s;
         }
-        
+
         .submit-btn:hover {
             opacity: 0.9;
         }
-        
-        /* 页脚 */
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem 20px;
-        }
-        
-        footer p {
-            opacity: 0.7;
-        }
-        
-        /* 响应式 */
+
         @media (max-width: 768px) {
-            nav ul {
+            .nav-links {
                 display: none;
             }
-            
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
+            }
+            .search-bar {
+                flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
-    <!-- 顶部导航 -->
-    <header>
-        <div class="nav-container">
-            <div class="logo" style="text-align: center; width: 100%;">富力湾（惠东）</div>
-            <nav>
-                <ul>
-                    <li><a href="#services">服务项目</a></li>
-                    <li><a href="#about">关于我们</a></li>
-                    <li><a href="#contact">联系我们</a></li>
-                </ul>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-home"></i>
+                <span>富力湾家园</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#services">服务项目</a>
+                <a href="#providers">服务商</a>
+                <a href="#about">关于我们</a>
+                <a href="#contact">联系我们</a>
             </nav>
         </div>
     </header>
-    
-    <!-- Banner区 -->
-    <section class="hero">
-        <h1>您的社区便民服务平台</h1>
-        <p>家政、维修、搬家、陪护...一键预约，服务到家</p>
-        <a href="#contact" class="hero-btn">立即预约服务</a>
-    </section>
-    
-    <!-- 服务项目 -->
-    <section class="services" id="services">
-        <h2 class="section-title">热门服务</h2>
-        <div class="service-grid">
-            <div class="service-card">
-                <div class="service-icon">🏠</div>
-                <h3>家政保洁</h3>
-                <p>日常保洁、深度清洁、开荒保洁</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔧</div>
-                <h3>家电维修</h3>
-                <p>空调、冰箱、洗衣机维修安装</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🚚</div>
-                <h3>搬家服务</h3>
-                <p>居民搬家、办公室搬迁、物品搬运</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">👴</div>
-                <h3>老人陪护</h3>
-                <p>日常陪护、就医陪诊、康复护理</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🌿</div>
-                <h3>绿植养护</h3>
-                <p>绿植租赁、定期养护、花园设计</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🐕</div>
-                <h3>宠物服务</h3>
-                <p>宠物寄养、美容、遛狗服务</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🎨</div>
-                <h3>墙面翻新</h3>
-                <p>旧墙刷新、艺术涂料、防水处理</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔑</div>
-                <h3>开锁换锁</h3>
-                <p>紧急开锁、指纹锁安装、汽车开锁</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- 关于我们 -->
-    <section class="about" id="about">
-        <div class="about-content">
-            <h2 class="section-title">关于富力湾</h2>
-            <p>富力湾是一家专注于社区便民服务的平台，致力于为广大居民提供便捷、专业、实惠的家政及生活服务。我们严格筛选服务人员，确保每位客户都能享受到优质的服务体验。</p>
-            <br>
-            <p>📞 客服热线：400-XXX-XXXX</p>
-        </div>
-    </section>
-    
-    <!-- 联系我们 -->
-    <section class="contact" id="contact">
-        <h2 class="section-title">预约服务</h2>
-        <form class="contact-form" action="https://formspree.io/f/myknpoed" method="POST">
-            <div class="form-group">
-                <label for="name">您的姓名</label>
-                <input type="text" id="name" name="name" required placeholder="请输入您的姓名">
-            </div>
-            <div class="form-group">
-                <label for="phone">联系电话</label>
-                <input type="tel" id="phone" name="phone" required placeholder="请输入您的电话号码">
-            </div>
-            <div class="form-group">
-                <label for="service">选择服务</label>
-                <select id="service" name="service" required>
-                    <option value="">请选择服务类型</option>
-                    <option value="家政保洁">家政保洁</option>
-                    <option value="家电维修">家电维修</option>
-                    <option value="搬家服务">搬家服务</option>
-                    <option value="老人陪护">老人陪护</option>
-                    <option value="绿植养护">绿植养护</option>
-                    <option value="宠物服务">宠物服务</option>
-                    <option value="墙面翻新">墙面翻新</option>
-                    <option value="开锁换锁">开锁换锁</option>
-                    <option value="其他">其他服务</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="message">详细需求</label>
-                <textarea id="message" name="message" placeholder="请描述您的具体需求"></textarea>
-            </div>
-            <button type="submit" class="submit-btn">提交预约</button>
-        </form>
-    </section>
-    
-    <!-- 页脚 -->
-    <footer>
-        <p>© 2026 富力湾 fuliwan.com - 社区便民服务</p>
-    </footer>
-    
-    <script>
 
-        
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
+    <section class="hero">
+        <h1>欢迎来到富力湾家园</h1>
+        <p>为您提供便捷、专业的社区生活服务，让您的居住更加舒适安心</p>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索您需要的服务..." id="searchInput">
+            <button onclick="searchServices()"><i class="fas fa-search"></i> 搜索</button>
+        </div>
+    </section>
+
+    <main class="container">
+        <h2 class="section-title" id="services">服务项目</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon healthcare">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h3>保健服务</h3>
+                <p>专业护理、康复理疗、健康咨询、居家养老等服务</p>
+                <button class="service-btn" onclick="openModal('healthcare')">立即预约</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon renovation">
+                    <i class="fas fa-hard-hat"></i>
+                </div>
+                <h3>装修服务</h3>
+                <p>新房装修、旧房翻新、水电改造、墙面刷新等服务</p>
+                <button class="service-btn" onclick="openModal('renovation')">立即预约</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon moving">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <h3>搬家服务</h3>
+                <p>居民搬家、企业搬迁、物品打包、钢琴搬运等服务</p>
+                <button class="service-btn" onclick="openModal('moving')">立即预约</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon repair">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>维修服务</h3>
+                <p>家电维修、水电维修、管道疏通、门窗维修等服务</p>
+                <button class="service-btn" onclick="openModal('repair')">立即预约</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon cleaning">
+                    <i class="fas fa-broom"></i>
+                </div>
+                <h3>保洁服务</h3>
+                <p>日常保洁、深度清洁、开荒保洁、家电清洗等服务</p>
+                <button class="service-btn" onclick="openModal('cleaning')">立即预约</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon beauty">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <h3>美容养生</h3>
+                <p>美容护理、按摩推拿、足疗SPA、养生调理等服务</p>
+                <button class="service-btn" onclick="openModal('beauty')">立即预约</button>
+            </div>
+        </div>
+
+        <div class="providers-section" id="providers">
+            <h2 class="section-title">认证服务商</h2>
+            <div class="providers-grid">
+                <div class="provider-card">
+                    <div class="provider-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="provider-info">
+                        <h4>张师傅</h4>
+                        <div class="category">维修服务 - 水电维修</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0 (328单)</span>
+                        </div>
+                        <button class="contact-btn" onclick="contactProvider('张师傅')">联系Ta</button>
+                    </div>
+                </div>
+
+                <div class="provider-card">
+                    <div class="provider-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="provider-info">
+                        <h4>李阿姨</h4>
+                        <div class="category">保健服务 - 专业护理</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.8 (256单)</span>
+                        </div>
+                        <button class="contact-btn" onclick="contactProvider('李阿姨')">联系Ta</button>
+                    </div>
+                </div>
+
+                <div class="provider-card">
+                    <div class="provider-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="provider-info">
+                        <h4>王师傅</h4>
+                        <div class="category">搬家服务 - 专业搬运</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0 (512单)</span>
+                        </div>
+                        <button class="contact-btn" onclick="contactProvider('王师傅')">联系Ta</button>
+                    </div>
+                </div>
+
+                <div class="provider-card">
+                    <div class="provider-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="provider-info">
+                        <h4>陈师傅</h4>
+                        <div class="category">装修服务 - 整体装修</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.2 (189单)</span>
+                        </div>
+                        <button class="contact-btn" onclick="contactProvider('陈师傅')">联系Ta</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal" id="serviceModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">预约服务</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <form id="serviceForm" onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label>您的姓名</label>
+                    <input type="text" name="name" required placeholder="请输入您的姓名">
+                </div>
+                <div class="form-group">
+                    <label>联系电话</label>
+                    <input type="tel" name="phone" required placeholder="请输入您的手机号">
+                </div>
+                <div class="form-group">
+                    <label>服务类型</label>
+                    <select name="serviceType" id="serviceType">
+                        <option value="healthcare">保健服务</option>
+                        <option value="renovation">装修服务</option>
+                        <option value="moving">搬家服务</option>
+                        <option value="repair">维修服务</option>
+                        <option value="cleaning">保洁服务</option>
+                        <option value="beauty">美容养生</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>预约时间</label>
+                    <input type="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label>详细描述</label>
+                    <textarea name="description" placeholder="请描述您需要的服务内容..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">提交预约</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <h2>富力湾家园</h2>
+            <p>专注社区服务，让生活更美好</p>
+            <div class="footer-links">
+                <a href="#services">服务项目</a>
+                <a href="#providers">服务商</a>
+                <a href="#about">关于我们</a>
+            </div>
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> 客服热线：400-888-6666</p>
+                <p><i class="fas fa-envelope"></i> 邮箱：service@fuliwan.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> 地址：富力湾小区服务中心</p>
+            </div>
+            <p style="margin-top: 2rem; opacity: 0.6;">&copy; 2026 富力湾家园 fuliwan.com 版权所有</p>
+        </div>
+    </footer>
+
+    <script>
+        const serviceNames = {
+            healthcare: '保健服务',
+            renovation: '装修服务',
+            moving: '搬家服务',
+            repair: '维修服务',
+            cleaning: '保洁服务',
+            beauty: '美容养生'
+        };
+
+        function openModal(serviceType) {
+            document.getElementById('serviceType').value = serviceType;
+            document.getElementById('modalTitle').textContent = '预约' + serviceNames[serviceType];
+            document.getElementById('serviceModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('serviceModal').classList.remove('active');
+        }
+
+        function submitForm(e) {
+            e.preventDefault();
+            const formData = new FormData(document.getElementById('serviceForm'));
+            const data = Object.fromEntries(formData);
+            
+            alert('预约成功！\n\n服务类型：' + serviceNames[data.serviceType] + 
+                  '\n姓名：' + data.name + 
+                  '\n电话：' + data.phone + 
+                  '\n预约时间：' + data.date + 
+                  '\n\n我们将尽快与您联系！');
+            closeModal();
+            document.getElementById('serviceForm').reset();
+        }
+
+        function contactProvider(name) {
+            alert('正在连接 ' + name + '...\n\n联系电话：400-888-6666');
+        }
+
+        function searchServices() {
+            const query = document.getElementById('searchInput').value;
+            if (query.trim()) {
+                alert('搜索：' + query + '\n\n正在为您查找相关的服务商...');
+            }
+        }
+
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchServices();
+            }
         });
+
+        window.onclick = function(e) {
+            if (e.target.classList.contains('modal')) {
+                closeModal();
+            }
+        };
     </script>
 </body>
 </html>
